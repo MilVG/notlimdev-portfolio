@@ -8,10 +8,11 @@ Source: https://sketchfab.com/3d-models/eevees-bedroom-591c7135a0c5455997299adf9
 Title: Eevee's Bedroom
 */
 
+//library delete useAnimations
 import * as THREE from 'three'
 import React from 'react'
 import { useGraph } from '@react-three/fiber'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import { GLTF, SkeletonUtils } from 'three-stdlib'
 
 type ActionName = 'Armature.003|Armature.003Action.001'
@@ -265,10 +266,11 @@ type GLTFResult = GLTF & {
 
 export function Model(props: JSX.IntrinsicElements['group']) {
   const group = React.useRef<THREE.Group>(null)
-  const { scene, animations } = useGLTF('/assets/model_3d_room/scene-transformed.glb')
+  //parametro eliminado animations => scene,animations
+  const { scene } = useGLTF('/assets/model_3d_room/scene-transformed.glb')
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone) as GLTFResult
-  const { actions } = useAnimations(animations, group)
+  //const { actions } = useAnimations(animations, group)
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
