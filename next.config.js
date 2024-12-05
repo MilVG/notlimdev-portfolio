@@ -1,8 +1,7 @@
 //import type { NextConfig } from "next";
 
-const nextConfig = {
+module.exports = {
   /* config options here */
 };
 
-module.exports = nextConfig
 
