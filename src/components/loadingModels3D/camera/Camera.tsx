@@ -1,10 +1,10 @@
 import { PerspectiveCamera } from "@react-three/drei";
-import { GUI } from "dat.gui"
-import { useEffect, useState } from "react";
+//import { GUI } from "dat.gui"
+//import { useEffect, useState } from "react";
 
 export const Camera = () => {
   return (
-    <PerspectiveCamera makeDefault position={[0, 0.6, 3.5]} />
+    <PerspectiveCamera makeDefault position={[0, 0, 2]} />
 
   )
 }
