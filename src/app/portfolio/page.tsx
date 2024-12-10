@@ -12,10 +12,10 @@ import Header from "@/components/portfolioPages/main/Header";
 import { OrbitControls as ThreeOrbitControls } from "three-stdlib";
 import { AnimationModel } from "@/components/animations/AnimationModel";
 
-//Importacion de modelo y debug Dat.Gui
+//Importacion de modelo
 const ModelGamerRoom = dynamic(
   () =>
-    import("@/components/loadingModels3D/SceneTest002").then(
+    import("@/components/loadingModels3D/Scene001").then(
       (mod) => mod.ModelGamerRoom,
     ),
   { ssr: false },
