@@ -20,22 +20,6 @@ const ModelGamerRoom = dynamic(
     ),
   { ssr: false },
 );
-
-const DebugTransformDatGui = dynamic(
-  () =>
-    import("@/components/loadingModels3D/startmodel/DebugDatGui").then(
-      (mod) => mod.DebugTransformDatGui,
-    ),
-  { ssr: false },
-);
-//Inciiacion de parametros para dat.gui
-const CameraTest = dynamic(
-  () =>
-    import("@/components/loadingModels3D/camera/CameraTest").then(
-      (mod) => mod.CameraTest,
-    ),
-  { ssr: false },
-)
 const Camera = dynamic(
   () =>
     import("@/components/loadingModels3D/camera/Camera").then(
@@ -43,12 +27,6 @@ const Camera = dynamic(
     ),
   { ssr: false },
 );
-
-const initialTransformModelDatGui = {
-  position: { x: 0, y: 0, z: 0 },
-  rotation: { x: 1.25, y: 0, z: 0 },
-  scale: { x: 10, y: 10, z: 10 },
-};
 
 
 export default function ScrollControlPage() {
@@ -70,7 +48,6 @@ export default function ScrollControlPage() {
             position={[1, 6, 10]}
           />
           <Suspense fallback={null}>
-            {/* <DebugTransformDatGui initialTransform={initialTransformModel2}> */}
             <ScrollControls pages={6} damping={0.8}>
               <AnimationModel
                 controlsRef={controlsRef}
@@ -82,7 +59,6 @@ export default function ScrollControlPage() {
                 />
               </AnimationModel>
             </ScrollControls>
-            {/* </DebugTransformDatGui> */}
           </Suspense>
           <OrbitControls
             ref={controlsRef}
