@@ -1,5 +1,4 @@
 import { Roboto } from "next/font/google"
-import Navbar from "@/components/portfolioPages/main/Header";
 
 const roboto = Roboto({
   weight: ['400', '700', '900'],
