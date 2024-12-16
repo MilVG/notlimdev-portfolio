@@ -36,8 +36,8 @@ export default function ScrollControlPage() {
   const controlsRef = useRef<ThreeOrbitControls | null>(null);
 
   return (
-    <div>
-      <div>
+    <div className={styles.rootpage}>
+      <div className={styles.headdiv}>
         <Header />
       </div>
       <div className={styles.scene}>
@@ -54,7 +54,7 @@ export default function ScrollControlPage() {
             position={[1, 6, 10]}
           />
           <Suspense fallback={null}>
-            <ScrollControls pages={6} damping={0.8}>
+            <ScrollControls pages={5} damping={0.2}>
               <AnimationModel
                 controlsRef={controlsRef}
               >
