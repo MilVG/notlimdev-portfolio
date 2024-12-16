@@ -73,11 +73,6 @@ export const AnimationModel = ({
     timeline.current
       .to(
         labelsrefs["label_01"]?.current,
-        // {
-        //   opacity: 0,
-        //   y: 100,
-        //
-        // }, // Estado inicial explícito
         {
           opacity: 1,
           duration: 0.4,
@@ -90,11 +85,6 @@ export const AnimationModel = ({
     timeline.current
       .to(
         labelsrefs["label_01"]?.current,
-        // {
-        //   opacity: 0,
-        //   y: 100,
-        //
-        // }, // Estado inicial explícito
         {
           opacity: 0,
           duration: 0.4,
@@ -138,11 +128,6 @@ export const AnimationModel = ({
       timeline.current
         .to(
           labelsrefs["label_02"]?.current,
-          // {
-          //   opacity: 0,
-          //   y: 100,
-          //
-          // }, // Estado inicial explícito
           {
             opacity: 1,
             duration: 0.1,
@@ -163,50 +148,6 @@ export const AnimationModel = ({
           },
           5,
         )
-    // .to(
-    //   animatedTarget.current,
-    //   {
-    //     x: 0,
-    //     y: 0.8,
-    //     z: 0,
-    //     duration: 0.8,
-    //     ease: "power2.in",
-    //     onUpdate: () => {
-    //       // Actualizar el target en tiempo real
-    //       controlsRef.current?.target.copy(animatedTarget.current);
-    //       controlsRef.current?.update();
-    //     },
-    //   },
-    //   1,
-    // );
-    // timeline.current.to(
-    //   camera.position,
-    //   {
-    //     x:0,
-    //     y:0,
-    //     z:
-    //   }
-    // )
-
-    //Object.keys(labelsrefs).forEach((id, index) => {
-    //  const labelRef = labelsrefs[id]?.current;
-    //  if (labelRef) {
-    //    timeline.current?.fromTo(
-    //      labelRef,
-    //      {
-    //        opacity: 0,
-    //        y: 10,
-    //      },
-    //      {
-    //        opacity: 1,
-    //        y: 0,
-    //        duration: 1,
-    //        ease: "power2.out"
-    //      },
-    //      0.5 + index * 0.3
-    //    );
-    //  }
-    //});
   }, [camera, controlsRef, modelRef, labelsrefs]);
   useFrame(() => {
     //timeline.current?.seek(scrollControl.offset * timeline.current.duration());
