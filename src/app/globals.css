@@ -20,29 +20,34 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-.label_02, .label_03,
-.label_04,.label_05{
-    opacity: 0;
-    position: absolute;
+
+.label_02,
+.label_03,
+.label_04,
+.label_05 {
+  opacity: 0;
+  position: absolute;
 }
 
 .label_01 {
-    position: absolute;
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   top: 400px;
   left: 400px;
-  opacity:0;
+  opacity: 0;
 }
+
 .label_01 h1 {
-    text-decoration: underline;
-    font-size: 10rem;
+  text-decoration: underline;
+  font-size: 10rem;
 }
+
 .label_01 p {
-    position: relative;
-    top: -50px;
-    font-size: 1.2rem;
+  position: relative;
+  top: -50px;
+  font-size: 1.2rem;
 }
 
 .label_02 {
@@ -63,4 +68,13 @@ body {
 .label_05 {
   top: 230px;
   left: 50px;
+}
+
+canvas+div::-webkit-scrollbar {
+  display: none !important;
+}
+
+canvas+div {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
