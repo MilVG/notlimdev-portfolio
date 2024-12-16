@@ -53,22 +53,22 @@ export const AnimationModel = ({
         x: Math.PI * -0.001,
         y: 0,
         z: 0,
-        duration: 0.5,
+        duration: 0.4,
         ease: "power3.inOut",
       },
-      0.5500,
+      0.625,
     );
     timeline.current.to(
       camera,
       {
         zoom: 4.3,
-        duration: 0.6,
+        duration: 0.4,
         ease: "power3.inOut",
         onUpdate: () => {
           camera.updateProjectionMatrix();
         },
       },
-      0.6550,
+      1.25,
     )
     timeline.current
       .to(
@@ -80,11 +80,11 @@ export const AnimationModel = ({
         // }, // Estado inicial explícito
         {
           opacity: 1,
-          duration: 0.1,
+          duration: 0.4,
           y: 0,
           ease: "power3.in",
         },
-        0.7900,
+        1.875,
       )
     //Animacion para el segundo label
     timeline.current
@@ -97,72 +97,72 @@ export const AnimationModel = ({
         // }, // Estado inicial explícito
         {
           opacity: 0,
-          duration: 0.1,
+          duration: 0.4,
           y: 0,
           ease: "power3.in",
         },
-        0.9400,
+        2.5,
       )
-    //timeline.current.to(
-    //   animatedTarget.current,
-    //   {
-    //     x: 0,
-    //     y: 0.8,
-    //     z: 0,
-    //     duration: 0.5,
-    //     ease: "power2.in",
-    //     onUpdate: () => {
-    //       // Actualizar el target en tiempo real
-    //       controlsRef.current?.target.copy(animatedTarget.current);
-    //       controlsRef.current?.update();
-    //     },
-    //   },
-    //   0.8700,
-    // )
-    //
-    // timeline.current.to(
-    //   camera,
-    //   {
-    //     zoom: 6.0,
-    //     duration: 0.5,
-    //     ease: "power3.inOut",
-    //     onUpdate: () => {
-    //       camera.updateProjectionMatrix();
-    //       controlsRef.current?.target.copy(animatedTarget.current);
-    //       controlsRef.current?.update();
-    //
-    //     },
-    //   },
-    //   0.9400,
-    // ),
-    //   timeline.current
-    //     .to(
-    //       labelsrefs["label_02"]?.current,
-    //       // {
-    //       //   opacity: 0,
-    //       //   y: 100,
-    //       //
-    //       // }, // Estado inicial explícito
-    //       {
-    //         opacity: 1,
-    //         duration: 0.1,
-    //         y: 0,
-    //         ease: "power3.in",
-    //       },
-    //       0.9999,
-    //     )
+    timeline.current.to(
+      animatedTarget.current,
+      {
+        x: 0,
+        y: 0.8,
+        z: 0,
+        duration: 0.4,
+        ease: "power2.in",
+        onUpdate: () => {
+          // Actualizar el target en tiempo real
+          controlsRef.current?.target.copy(animatedTarget.current);
+          controlsRef.current?.update();
+        },
+      },
+      3.125,
+    )
 
-    // .to(
-    //   modelRef.current?.rotation as THREE.Euler,
-    //   {
-    //     x: 0,
-    //     y: Math.PI * 0.6,
-    //     z: 0,
-    //     duration: 0.8,
-    //     ease: "power3.inOut",
-    //   },
-    //   0.8,
-    // )
+    timeline.current.to(
+      camera,
+      {
+        zoom: 6.0,
+        duration: 0.4,
+        ease: "power3.inOut",
+        onUpdate: () => {
+          camera.updateProjectionMatrix();
+          controlsRef.current?.target.copy(animatedTarget.current);
+          controlsRef.current?.update();
+
+        },
+      },
+      3.75,
+    ),
+      timeline.current
+        .to(
+          labelsrefs["label_02"]?.current,
+          // {
+          //   opacity: 0,
+          //   y: 100,
+          //
+          // }, // Estado inicial explícito
+          {
+            opacity: 1,
+            duration: 0.1,
+            y: 0,
+            ease: "power3.in",
+          },
+          4.375,
+        )
+
+        .to(
+          modelRef.current?.rotation as THREE.Euler,
+          {
+            x: 0,
+            y: Math.PI * 0.6,
+            z: 0,
+            duration: 0.4,
+            ease: "power3.inOut",
+          },
+          5,
+        )
     // .to(
     //   animatedTarget.current,
     //   {
