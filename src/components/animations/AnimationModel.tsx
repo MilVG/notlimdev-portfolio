@@ -9,7 +9,7 @@ import { useLabelsStore } from "@/store/store_Labels_Html";
 
 interface AnimationWrapperProps {
   children: React.ReactNode;
-  controlsRef: React.MutableRefObject<ThreeOrbitControls | null>; // Tipo de la referencia de OrbitControls
+  controlsRef: React.MutableRefObject<ThreeOrbitControls | null>;
 }
 
 export const AnimationModel = ({
@@ -42,9 +42,8 @@ export const AnimationModel = ({
       !labelsrefs["label_01"]?.current
     )
       return;
-    controlsRef.current?.target.set(0, 0, 0); // Valor inicial del target
-    controlsRef.current?.update(); // Actualiza el controlsRef
-
+    controlsRef.current?.target.set(0, 0, 0);
+    controlsRef.current?.update();
     timeline.current = gsap.timeline();
 
     timeline.current.to(
@@ -81,7 +80,6 @@ export const AnimationModel = ({
         },
         1.875,
       )
-    //Animacion para el segundo label
     timeline.current
       .to(
         labelsrefs["label_01"]?.current,
@@ -102,15 +100,12 @@ export const AnimationModel = ({
         duration: 0.4,
         ease: "power2.in",
         onUpdate: () => {
-          // Actualizar el target en tiempo real
           controlsRef.current?.target.copy(animatedTarget.current);
           controlsRef.current?.update();
         },
       },
       3.125,
-    )
-
-    timeline.current.to(
+    ).to(
       camera,
       {
         zoom: 6.0,
@@ -118,39 +113,36 @@ export const AnimationModel = ({
         ease: "power3.inOut",
         onUpdate: () => {
           camera.updateProjectionMatrix();
-          controlsRef.current?.target.copy(animatedTarget.current);
-          controlsRef.current?.update();
-
         },
       },
       3.75,
-    ),
-      timeline.current
-        .to(
-          labelsrefs["label_02"]?.current,
-          {
-            opacity: 1,
-            duration: 0.1,
-            y: 0,
-            ease: "power3.in",
-          },
-          4.375,
-        )
+    );
 
-        .to(
-          modelRef.current?.rotation as THREE.Euler,
-          {
-            x: 0,
-            y: Math.PI * 0.6,
-            z: 0,
-            duration: 0.4,
-            ease: "power3.inOut",
-          },
-          5,
-        )
+    timeline.current
+      .to(
+        labelsrefs["label_02"]?.current,
+        {
+          opacity: 1,
+          duration: 0.1,
+          y: 0,
+          ease: "power3.in",
+        },
+        4.375,
+      )
+
+      .to(
+        modelRef.current?.rotation as THREE.Euler,
+        {
+          x: 0,
+          y: Math.PI * 0.6,
+          z: 0,
+          duration: 0.4,
+          ease: "power3.inOut",
+        },
+        5,
+      )
   }, [camera, controlsRef, modelRef, labelsrefs]);
   useFrame(() => {
-    //timeline.current?.seek(scrollControl.offset * timeline.current.duration());
     const progress = THREE.MathUtils.clamp(scrollControl.offset, 0, 1); // Desplazamiento normalizado entre 0 y 1
     timeline.current?.progress(progress); // Ajusta el progreso del timeline según el scroll
   });
