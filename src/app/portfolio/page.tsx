@@ -11,6 +11,8 @@ import Header from "@/components/portfolioPages/main/Header";
 
 import { OrbitControls as ThreeOrbitControls } from "three-stdlib";
 import { AnimationModel } from "@/components/animations/AnimationModel";
+import { labelsData } from "@/data/labeldata";
+import LabelsHtml from "@/components/elementsHtml/LabelsHtml";
 
 //Importacion de modelo
 const ModelGamerRoom = dynamic(
@@ -20,6 +22,8 @@ const ModelGamerRoom = dynamic(
     ),
   { ssr: false },
 );
+
+//Inciiacion de parametros para dat.gui
 const Camera = dynamic(
   () =>
     import("@/components/loadingModels3D/camera/Camera").then(
@@ -28,12 +32,14 @@ const Camera = dynamic(
   { ssr: false },
 );
 
-
 export default function ScrollControlPage() {
   const controlsRef = useRef<ThreeOrbitControls | null>(null);
+
   return (
-    <div>
-      <Header />
+    <div className={styles.rootpage}>
+      <div className={styles.headdiv}>
+        <Header />
+      </div>
       <div className={styles.scene}>
         <Canvas>
           <Camera />
@@ -48,7 +54,7 @@ export default function ScrollControlPage() {
             position={[1, 6, 10]}
           />
           <Suspense fallback={null}>
-            <ScrollControls pages={6} damping={0.8}>
+            <ScrollControls pages={5} damping={0.2}>
               <AnimationModel
                 controlsRef={controlsRef}
               >
@@ -70,10 +76,15 @@ export default function ScrollControlPage() {
             maxPolarAngle={Math.PI * 0.35}
           />
         </Canvas>
+        <div
+          className="absolute top-0 left-0 w-full h-full 
+          pointer-events-none overflow-hidden gap-2"
+        >
+          {labelsData.map((label) => (
+            <LabelsHtml id={label.id} label={label} key={label.id} />
+          ))}
+        </div>
       </div>
-      {/* <div className={styles.nueva_section}> */}
-      {/*   <h1>Seccion nueva</h1> */}
-      {/* </div> */}
     </div>
   );
 }
