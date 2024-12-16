@@ -74,7 +74,7 @@ export const AnimationModel = ({
         labelsrefs["label_01"]?.current,
         {
           opacity: 1,
-          duration: 0.4,
+          duration: 0.1,
           y: 0,
           ease: "power3.in",
         },
@@ -85,7 +85,7 @@ export const AnimationModel = ({
         labelsrefs["label_01"]?.current,
         {
           opacity: 0,
-          duration: 0.4,
+          duration: 0.1,
           y: 0,
           ease: "power3.in",
         },
