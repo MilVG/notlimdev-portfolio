@@ -11,6 +11,12 @@ type ModelStore = {
 // Crear el store con Zustand
 export const useModelStore = create<ModelStore>((set) => ({
   modelRef: null, // Inicializamos en null
-  setModelRef: (ref) => set({ modelRef: ref }),
+  setModelRef: (ref) => {
+    if (ref === null) {
+      console.error('error de Modelo')
+      return;
+    }
+    set({ modelRef: ref })
+  },
 }));
 
