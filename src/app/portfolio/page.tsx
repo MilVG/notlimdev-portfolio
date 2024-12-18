@@ -54,7 +54,7 @@ export default function ScrollControlPage() {
             position={[1, 6, 10]}
           />
           <Suspense fallback={null}>
-            <ScrollControls pages={5} damping={0.2}>
+            <ScrollControls pages={5} damping={2.5}>
               <AnimationModel
                 controlsRef={controlsRef}
               >
