@@ -45,7 +45,7 @@ export const AnimationModel = ({ children, controlsRef }: AnimationWrapperProps)
       controlsRef: controlsRef
     });
 
-  }, [modelRef, camera, labelsrefs]);
+  }, [modelRef, camera, labelsrefs, controlsRef]);
 
   useFrame(() => {
     const progress = THREE.MathUtils.clamp(scrollControl.offset, 0, 1); // Desplazamiento normalizado entre 0 y 1
