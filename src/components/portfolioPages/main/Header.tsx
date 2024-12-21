@@ -6,27 +6,30 @@ import Presentation from '../elementsHeader/Presentation';
 import AccessDownloadCv from '../elementsHeader/AccessDownloadCv';
 import HeaderNavigation from '../elementsHeader/HeaderNavigation';
 
+import stylesRoot from "@/app/portfolio/root_portfolio.module.css";
 export default function Header() {
 
 
   return (
-    <div className={styles.header_container}>
-      <div className={`relative h-full`}>
+    <div className={stylesRoot.headdiv}>
+      <div className={styles.header_container}>
+        <div className={`relative h-full`}>
 
-        {/*header Navigation*/}
-        <HeaderNavigation />
+          {/*header Navigation*/}
+          <HeaderNavigation />
 
-        {/*Banner_Background*/}
-        <Banner />
+          {/*Banner_Background*/}
+          <Banner />
 
-        {/*Text - Presentation*/}
-        <Presentation />
+          {/*Text - Presentation*/}
+          <Presentation />
 
-        {/*Text - CV -Download*/}
-        <AccessDownloadCv />
-      </div>
-      <div>
+          {/*Text - CV -Download*/}
+          <AccessDownloadCv />
+        </div>
+        <div>
 
+        </div>
       </div>
     </div>
   )
