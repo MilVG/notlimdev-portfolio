@@ -14,7 +14,7 @@ export const dataPathTexture: dataPathTextureT[] = [
     positionMesh: [0.7, 2.9, 0],
     positionDecal: [0, 0, 1],
     rotation: [0.5, 0, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
   },
   {
@@ -23,7 +23,7 @@ export const dataPathTexture: dataPathTextureT[] = [
     positionMesh: [2.3, 1.84, 0],
     positionDecal: [-0.3, 0, 1],
     rotation: [0, 0, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
 
   },
@@ -33,7 +33,7 @@ export const dataPathTexture: dataPathTextureT[] = [
     positionMesh: [-2.7, -1.4, 0],
     positionDecal: [0, 0, 1],
     rotation: [0, 0.4, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
   },
   {
@@ -42,7 +42,7 @@ export const dataPathTexture: dataPathTextureT[] = [
     positionMesh: [-1.22, 2.8, 0],
     positionDecal: [0.3, 0, 1],
     rotation: [0, 0, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.6
 
   },
@@ -52,7 +52,7 @@ export const dataPathTexture: dataPathTextureT[] = [
     positionMesh: [2.3, -1.8, 0],
     positionDecal: [0, 0, 1],
     rotation: [0, -0.3, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
   },
   {
@@ -61,7 +61,7 @@ export const dataPathTexture: dataPathTextureT[] = [
     positionMesh: [-2.8, 1.5, 0],
     positionDecal: [0, 0, 1],
     rotation: [0.4, 0.2, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
 
   },
@@ -78,10 +78,10 @@ export const dataPathTexture: dataPathTextureT[] = [
   {
     id: 8,
     image: "taildwindCss",
-    positionMesh: [0.75, 1.4, 0],
+    positionMesh: [0.1, 1.4, 0],
     positionDecal: [0, 0, 1],
     rotation: [0, 0, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
 
   },
@@ -91,17 +91,17 @@ export const dataPathTexture: dataPathTextureT[] = [
     positionMesh: [3, 0, 0],
     positionDecal: [0, 0, 1],
     rotation: [0, 0, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
 
   },
   {
     id: 10,
     image: "laravel",
-    positionMesh: [-1.36, 0.7, 0],
+    positionMesh: [-1.2, 0.9, 0],
     positionDecal: [0, 0, 1],
     rotation: [0, 0, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
 
   },
@@ -111,7 +111,7 @@ export const dataPathTexture: dataPathTextureT[] = [
     positionMesh: [0.7, -2.8, 0],
     positionDecal: [0, 0, 1],
     rotation: [-0.4, 0, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
   },
   {
@@ -120,43 +120,43 @@ export const dataPathTexture: dataPathTextureT[] = [
     positionMesh: [-1.2, -2.7, 0],
     positionDecal: [0, 0, 1],
     rotation: [-0.6, 0.1, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
   },
   {
     id: 13,
     image: "gitHub",
-    positionMesh: [-0.5, 1.4, 0],
+    positionMesh: [1.25, 0.7, 0],
     positionDecal: [0, 0, 1],
     rotation: [0, 0, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
   },
   {
     id: 14,
     image: "docker",
-    positionMesh: [-1.3, -0.65, 0],
+    positionMesh: [-1.16, -0.87, 0],
     positionDecal: [0, 0, 1],
     rotation: [-0.2, 0.2, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
   },
   {
     id: 15,
     image: "unity",
-    positionMesh: [1.4, 0, 0],
+    positionMesh: [0.14, -1.48, 0],
     positionDecal: [0, 0, 1],
     rotation: [0, 0, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
   },
   {
     id: 16,
     image: "AR-VR",
-    positionMesh: [0.7, -1.3, 0],
+    positionMesh: [1.28, -0.75, 0],
     positionDecal: [0, 0, 1],
     rotation: [-0.4, 0, 0],
-    scalemesh: 0.4,
+    scalemesh: 0.3,
     scaleDecal: 0.4
   },
 ]
