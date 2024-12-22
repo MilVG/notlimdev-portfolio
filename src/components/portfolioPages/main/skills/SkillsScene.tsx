@@ -2,7 +2,7 @@
 
 import styles from "@/app/portfolio/root_portfolio.module.css";
 import * as THREE from "three"
-import { Decal, OrbitControls, useTexture } from "@react-three/drei";
+import { Decal, useTexture } from "@react-three/drei";
 import { Canvas, ThreeEvent } from "@react-three/fiber";
 import { Suspense, useState, useRef } from "react";
 import DashedLineCurve from "./LineCurve";
