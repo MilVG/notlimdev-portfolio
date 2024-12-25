@@ -1,12 +1,12 @@
 
 import React from 'react'
-import styles from "@/components/portfolioPages/elementsHeader/header.module.css"
-import Banner from '../elementsHeader/Banner';
-import Presentation from '../elementsHeader/Presentation';
-import AccessDownloadCv from '../elementsHeader/AccessDownloadCv';
-import HeaderNavigation from '../elementsHeader/HeaderNavigation';
+import styles from "./elementsHeader/header.module.css"
 
 import stylesRoot from "@/app/portfolio/root_portfolio.module.css";
+import Banner from './elementsHeader/Banner';
+import HeaderNavigation from './elementsHeader/HeaderNavigation';
+import Presentation from './elementsHeader/Presentation';
+import AccessDownloadCv from './elementsHeader/AccessDownloadCv';
 export default function Header() {
 
 

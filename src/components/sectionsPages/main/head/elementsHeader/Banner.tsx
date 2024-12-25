@@ -1,5 +1,5 @@
 import BannerBackground from './BannerBackground';
-import styles from "@/components/portfolioPages/elementsHeader/header.module.css"
+import styles from "./header.module.css"
 
 export default function Banner() {
   return (
