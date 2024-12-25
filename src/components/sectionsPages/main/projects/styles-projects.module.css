@@ -1,0 +1,6 @@
+.projects {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(to bottom, #55525a, #52505b, #4f4e5b, #4b4c5c, #464a5d, #43475a, #414458, #3e4155, #3c3c4e, #3a3848, #373341, #342f3b);
+}
