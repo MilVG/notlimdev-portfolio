@@ -1,8 +1,10 @@
 
-import Header from "@/components/portfolioPages/main/Header";
 import styles from "@/app/portfolio/root_portfolio.module.css";
-import AboutScene from "@/components/portfolioPages/main/AboutScene";
-import SkillsScene from "@/components/portfolioPages/main/skills/SkillsScene";
+import AboutScene from "@/components/sectionsPages/main/about/AboutScene";
+import { Experience } from "@/components/sectionsPages/main/experience/Experience";
+import Header from "@/components/sectionsPages/main/head/Header";
+import { Projects } from "@/components/sectionsPages/main/projects/Projects";
+import SkillsScene from "@/components/sectionsPages/main/skills/SkillsScene";
 
 export default function RootPage() {
 
@@ -11,6 +13,8 @@ export default function RootPage() {
       <Header />
       <AboutScene />
       <SkillsScene />
+      <Experience />
+      <Projects />
     </div>
   );
 }
