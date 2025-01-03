@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react';
 import Lenis from "lenis";
 
 
-export const  Projects = () => {
+export const Projects = () => {
 
   const horizotalPanelsRef = useRef<HTMLDivElement>(null)
 
@@ -30,7 +30,7 @@ export const  Projects = () => {
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
-    let sections = gsap.utils.toArray(".panel")
+    const sections = gsap.utils.toArray(".panel")
 
     gsap.config({ force3D: true })
     gsap.to('.panel', {
