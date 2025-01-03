@@ -15,6 +15,7 @@ export default function RootPage() {
       <SkillsScene />
       <Experience />
       <Projects />
+      <div className="relative h-screen w-full bg-purple-600"></div>
     </div>
   );
 }
