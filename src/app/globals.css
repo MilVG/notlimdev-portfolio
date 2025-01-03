@@ -15,10 +15,10 @@
 }
 
 body {
-  padding: 10px;
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 .label_01,
@@ -126,4 +126,63 @@ canvas+div::-webkit-scrollbar {
 canvas+div {
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
+}
+
+.main {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section {
+  width: 100vw;
+  height: 100vh;
+  /* Cada sección ocupa la altura completa de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* Necesario si hay elementos posicionales */
+}
+
+.boxes {
+  display: flex;
+  flex-direction: column;
+  /* Ubica las cajas en columna */
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /* Espacio entre cajas */
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+/* Gradientes para diseño */
+.gradient-green {
+  background: linear-gradient(135deg, #a3ffce, #1e8e50);
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #a0d8ff, #005cbf);
+}
+
+.gradient-purple {
+  background: linear-gradient(135deg, #d9a0ff, #6e00b3);
+}
+
+.gradient-red {
+  background: linear-gradient(135deg, #ffa0a0, #bf0000);
+}
+
+.gradient-orange {
+  background: linear-gradient(135deg, #ffc48a, #bf6000);
 }
