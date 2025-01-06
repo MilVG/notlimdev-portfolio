@@ -1,6 +1,9 @@
 import * as THREE from 'three'
 import React from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import {
+  useGLTF,
+  //useAnimations 
+} from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
 type ActionName = 'Take 001'
@@ -23,8 +26,8 @@ type GLTFResult = GLTF & {
 
 export function SceneEarth(props: JSX.IntrinsicElements['group']) {
   const group = React.useRef<THREE.Group>(null)
-  const { nodes, materials, animations } = useGLTF('assets/earth/model_earth.glb') as GLTFResult
-  const { actions } = useAnimations(animations, group)
+  const { nodes, materials } = useGLTF('assets/earth/model_earth.glb') as GLTFResult
+  //const { actions } = useAnimations(animations, group)
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
