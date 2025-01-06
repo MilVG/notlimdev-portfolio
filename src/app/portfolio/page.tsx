@@ -1,6 +1,7 @@
 
 import styles from "@/app/portfolio/root_portfolio.module.css";
 import AboutScene from "@/components/sectionsPages/main/about/AboutScene";
+import { Contact } from "@/components/sectionsPages/main/contact/Contact";
 import { Experience } from "@/components/sectionsPages/main/experience/Experience";
 import Header from "@/components/sectionsPages/main/head/Header";
 import { Projects } from "@/components/sectionsPages/main/projects/Projects";
@@ -12,10 +13,10 @@ export default function RootPage() {
     <div className={styles.rootpage}>
       <Header />
       <AboutScene />
-      <SkillsScene />
+      <SkillsScene /> 
       <Experience />
-      <Projects />
-      <div className="relative h-screen w-full bg-purple-600"></div>
+      <Projects /> 
+      <Contact />
     </div>
   );
 }
