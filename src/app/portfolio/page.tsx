@@ -12,11 +12,11 @@ export default function RootPage() {
   return (
     <div className={styles.rootpage}>
       <Header />
-      <AboutScene />
-      <SkillsScene /> 
-      <Experience />
-      <Projects /> 
-      <Contact />
+      {/* <AboutScene /> */}
+      {/* <SkillsScene /> */}
+      {/* <Experience /> */}
+      {/* <Projects /> */}
+      {/* <Contact /> */}
     </div>
   );
 }
