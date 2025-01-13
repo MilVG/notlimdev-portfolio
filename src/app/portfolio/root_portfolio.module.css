@@ -10,12 +10,6 @@
   height: 100vh;
 }
 
-.headdiv {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  z-index: 10;
-}
 
 .skills {
   position: relative;
@@ -27,7 +21,7 @@
 .scene {
   /*background-image: linear-gradient(to bottom, #fff7d1, #ffc999, #ff8e92, #ff5abe, #8b5dff);*/
   /*background-image: linear-gradient(to bottom, #0e1115, #394245, #6a7977, #a7b3a8, #f0efdd);*/
-    background-image: linear-gradient(to bottom, #0d0d0d, #121114, #161419, #19171e, #1d1923, #1d1923, #1d1923, #1d1923, #19171e, #161419, #121114, #0d0d0d);
+  background-image: linear-gradient(to bottom, #0d0d0d, #121114, #161419, #19171e, #1d1923, #1d1923, #1d1923, #1d1923, #19171e, #161419, #121114, #0d0d0d);
 }
 
 .nueva_section {
