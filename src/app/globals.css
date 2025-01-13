@@ -200,6 +200,6 @@ canvas+div {
     right: 0;
     width: 80%;
     height: 100vh;
-    z-index: 30;
+    z-index: 50;
   }
 }
