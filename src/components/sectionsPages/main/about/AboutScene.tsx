@@ -65,6 +65,7 @@ export default function AboutScene() {
           ref={controlsRef}
           enableZoom={false}
           enablePan={false}
+          enableRotate={false}
           minAzimuthAngle={-Math.PI / 12}
           maxAzimuthAngle={Math.PI / 12}
           minPolarAngle={Math.PI * 0.3}
@@ -72,8 +73,7 @@ export default function AboutScene() {
         />
       </Canvas>
       <div
-        className="absolute top-0 left-0 w-full h-full 
-          pointer-events-none overflow-hidden gap-2"
+        className="absolute top-0 left-0 w-full h-full overflow-hidden z-10"
       >
         {labelsData.map((label) => (
           <LabelsHtml id={label.id} label={label} key={label.id} />
