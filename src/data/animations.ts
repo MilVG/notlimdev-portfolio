@@ -16,7 +16,7 @@ type TimelineProps = {
   controlsRef: React.MutableRefObject<ThreeOrbitControls | null>;
 
 };
-export function ArrayAnimationLabel01({
+export function ArrayAnimations({
   modelRef,
   timeline,
   camera,
@@ -52,16 +52,16 @@ export function ArrayAnimationLabel01({
       objectToAnimate: labelsrefs["label_01"]?.current,
       properties: {
         opacity: 1,
-        duration: 6,
-        y: 0,
-        ease: "power3.in",
+        duration: 1,
+        y: 100,
+        ease: "power4.in",
       },
     },
     {
       objectToAnimate: labelsrefs["label_01"]?.current,
       properties: {
         opacity: 0,
-        duration: 6,
+        duration: 1,
         y: 0,
         ease: "power3.in",
       },
@@ -95,8 +95,8 @@ export function ArrayAnimationLabel01({
       objectToAnimate: labelsrefs["label_02"]?.current,
       properties: {
         opacity: 1,
-        duration: 6,
-        y: 0,
+        duration: 1,
+        y: 100,
         ease: "power3.in",
       },
     },
@@ -104,7 +104,7 @@ export function ArrayAnimationLabel01({
       objectToAnimate: labelsrefs["label_02"]?.current,
       properties: {
         opacity: 0,
-        duration: 6,
+        duration: 1,
         y: 0,
         ease: "power3.in",
       },
@@ -144,8 +144,8 @@ export function ArrayAnimationLabel01({
       objectToAnimate: labelsrefs["label_03"]?.current,
       properties: {
         opacity: 1,
-        duration: 6,
-        y: 0,
+        duration: 1,
+        y: 100,
         ease: "power3.in",
       },
     },
@@ -153,7 +153,7 @@ export function ArrayAnimationLabel01({
       objectToAnimate: labelsrefs["label_03"]?.current,
       properties: {
         opacity: 0,
-        duration: 6,
+        duration: 1,
         y: 0,
         ease: "power3.in",
       },
@@ -183,8 +183,8 @@ export function ArrayAnimationLabel01({
       objectToAnimate: labelsrefs["label_04"]?.current,
       properties: {
         opacity: 1,
-        duration: 6,
-        y: 0,
+        duration: 1,
+        y: 100,
         ease: "power3.in",
       },
     },
@@ -192,7 +192,7 @@ export function ArrayAnimationLabel01({
       objectToAnimate: labelsrefs["label_04"]?.current,
       properties: {
         opacity: 0,
-        duration: 6,
+        duration: 1,
         y: 0,
         ease: "power3.in",
       },
@@ -222,8 +222,8 @@ export function ArrayAnimationLabel01({
       objectToAnimate: labelsrefs["label_05"]?.current,
       properties: {
         opacity: 1,
-        duration: 6,
-        y: 0,
+        duration: 1,
+        y: 100,
         ease: "power3.in",
       },
     },
@@ -232,7 +232,7 @@ export function ArrayAnimationLabel01({
       objectToAnimate: labelsrefs["label_05"]?.current,
       properties: {
         opacity: 0,
-        duration: 6,
+        duration: 1,
         y: 0,
         ease: "power3.in",
       },
