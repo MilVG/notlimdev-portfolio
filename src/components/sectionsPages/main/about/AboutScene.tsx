@@ -2,7 +2,6 @@
 import dynamic from "next/dynamic";
 import {
   OrbitControls,
-  ScrollControls,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
@@ -34,8 +33,10 @@ const Camera = dynamic(
 export default function AboutScene() {
 
   const controlsRef = useRef<ThreeOrbitControls | null>(null);
+
+  const containerSceneRef = useRef<HTMLDivElement | null>(null)
   return (
-    <div className={styles.scene}>
+    <div ref={containerSceneRef} className={styles.scene}>
       <Canvas>
         <Camera />
         <ambientLight
@@ -49,17 +50,16 @@ export default function AboutScene() {
           position={[1, 6, 10]}
         />
         <Suspense fallback={null}>
-          <ScrollControls pages={5} damping={2.5}>
-            <AnimationModel
-              controlsRef={controlsRef}
-            >
-              <ModelGamerRoom
-                position={[0, 0, 0]}
-                rotation={[1.25, 0, 0]}
-                scale={[10, 10, 10]}
-              />
-            </AnimationModel>
-          </ScrollControls>
+          <AnimationModel
+            containerSceneRef={containerSceneRef}
+            controlsRef={controlsRef}
+          >
+            <ModelGamerRoom
+              position={[0, 0, 0]}
+              rotation={[1.25, 0, 0]}
+              scale={[10, 10, 10]}
+            />
+          </AnimationModel>
         </Suspense>
         <OrbitControls
           ref={controlsRef}
