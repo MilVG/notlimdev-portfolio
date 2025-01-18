@@ -1,21 +1,24 @@
 import * as THREE from "three";
 import { useScroll } from "@react-three/drei";
 import { useThree, useFrame } from "@react-three/fiber";
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useEffect } from "react";
 import { OrbitControls as ThreeOrbitControls } from "three-stdlib";
-import gsap from "gsap";
 import { useModelStore } from "@/store/store";
 import { useLabelsStore } from "@/store/store_Labels_Html";
-import { ArrayAnimationLabel01 } from "@/data/animations";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+import { useGSAP } from "@gsap/react";
+import { ArrayAnimations } from "@/data/animations";
 
 interface AnimationWrapperProps {
   children: React.ReactNode;
   controlsRef: React.MutableRefObject<ThreeOrbitControls | null>;
+  containerSceneRef: React.MutableRefObject<HTMLDivElement | null>
 }
 
-export const AnimationModel = ({ children, controlsRef }: AnimationWrapperProps) => {
 
-  const scrollControl = useScroll();
+export const AnimationModel = ({ children, controlsRef, containerSceneRef }: AnimationWrapperProps) => {
+
   const timeline = useRef<GSAPTimeline>();
 
   const { camera } = useThree<{ camera: THREE.PerspectiveCamera }>();
@@ -24,19 +27,28 @@ export const AnimationModel = ({ children, controlsRef }: AnimationWrapperProps)
   const modelRef = useModelStore((state) => state.modelRef);
   const labelsrefs = useLabelsStore((state) => state.labelsRef);
 
-  useLayoutEffect(() => {
-    if (
-      !controlsRef.current ||
-      !modelRef?.current ||
-      !labelsrefs["label_01"]?.current
-    )
-      return;
+  useGSAP(() => {
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    if (!modelRef?.current || !containerSceneRef.current) return
+
     controlsRef.current?.target.set(0, 0, 0);
     controlsRef.current?.update();
 
-    timeline.current = gsap.timeline();
+    const containerRef = containerSceneRef.current
 
-    ArrayAnimationLabel01({
+    timeline.current = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef,
+        start: "top top",
+        end: "+=1000%",
+        scrub: true,
+        pin: true,
+      },
+    });
+
+    ArrayAnimations({
       modelRef: modelRef,
       timeline: timeline.current,
       camera: camera,
@@ -45,12 +57,7 @@ export const AnimationModel = ({ children, controlsRef }: AnimationWrapperProps)
       controlsRef: controlsRef
     });
 
-  }, [modelRef, camera, labelsrefs, controlsRef]);
-
-  useFrame(() => {
-    const progress = THREE.MathUtils.clamp(scrollControl.offset, 0, 1); // Desplazamiento normalizado entre 0 y 1
-    timeline.current?.progress(progress); // Ajusta el progreso del timeline según el scroll
-  });
+  }, { dependencies: [modelRef], scope: containerSceneRef })
 
   return <group ref={groupRef}>{children}</group>;
 };
