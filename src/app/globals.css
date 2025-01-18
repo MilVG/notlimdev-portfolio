@@ -104,7 +104,7 @@ body {
 /* Stylos para el label 5*/
 .label_05 {
   bottom: 500px;
-  right: 150px;
+  left: 200px;
 }
 
 .label_05 h1 {
@@ -132,4 +132,102 @@ body {
     height: 100vh;
     z-index: 50;
   }
+
+  .label_01 h1,
+  .label_02 h1,
+  .label_03 h1,
+  .label_04 h1,
+  .label_05 h1 {
+    font-size: 3rem;
+  }
+
+  .label_01 p,
+  .label_02 p,
+  .label_03 p,
+  .label_04 p,
+  .label_05 p {
+    font-size: 10px;
+    top: 0;
+  }
+
+  .label_01,
+  .label_02,
+  .label_03,
+  .label_04,
+  .label_05 {
+    left: 80px;
+  }
+
+
+}
+
+@media (768px <=width <=900px) {
+
+  .label_01 h1,
+  .label_02 h1,
+  .label_03 h1,
+  .label_04 h1,
+  .label_05 h1 {
+    font-size: 8rem;
+  }
+
+  .label_01 p,
+  .label_02 p,
+  .label_03 p,
+  .label_04 p,
+  .label_05 p {
+    font-size: 1rem;
+    top: 0;
+  }
+
+  .label_01,
+  .label_02,
+  .label_03,
+  .label_04,
+  .label_05 {
+    left: 150px;
+  }
+
+}
+
+@media (901px <=width <=1200px) {
+
+  .label_01 h1,
+  .label_02 h1,
+  .label_03 h1,
+  .label_04 h1,
+  .label_05 h1 {
+    font-size: 8rem;
+  }
+
+  .label_01 p,
+  .label_02 p,
+  .label_03 p,
+  .label_04 p,
+  .label_05 p {
+    font-size: 1rem;
+    top: 0;
+  }
+
+}
+
+@media (1201px <=width <=1300px) {
+
+  .label_01 h1,
+  .label_02 h1,
+  .label_03 h1,
+  .label_04 h1,
+  .label_05 h1 {
+    font-size: 10rem;
+  }
+
+  .label_01 p,
+  .label_02 p,
+  .label_03 p,
+  .label_04 p,
+  .label_05 p {
+    font-size: 1.5rem;
+    top: 0;
+  }
+
 }
