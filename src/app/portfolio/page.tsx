@@ -1,15 +1,15 @@
 
-import styles from "@/app/portfolio/root_portfolio.module.css";
 import AboutScene from "@/components/sectionsPages/main/about/AboutScene";
 import Header from "@/components/sectionsPages/main/head/Header";
+import SkillsScene from "@/components/sectionsPages/main/skills/SkillsScene";
 
 export default function RootPage() {
 
   return (
-    <div className={styles.rootpage}>
+    <div className="w-full h-screen">
       <Header />
       <AboutScene />
-      {/* <SkillsScene /> */}
+      <SkillsScene />
       {/* <Experience /> */}
       {/* <Projects /> */}
       {/* <Contact /> */}
