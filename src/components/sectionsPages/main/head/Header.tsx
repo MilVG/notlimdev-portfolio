@@ -5,7 +5,7 @@ export default function Header() {
 
 
   return (
-    <div className="relative  w-full h-full flex flex-col justify-start items-center ">
+    <div className="relative  w-full h-full flex max-sm:h-1/2 flex-col justify-start items-center">
       {/*header Navigation*/}
       <HeaderNavigation />
 
