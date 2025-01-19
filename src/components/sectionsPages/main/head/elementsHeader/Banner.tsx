@@ -5,7 +5,7 @@ import AccessDownloadCv from './AccessDownloadCv';
 
 export default function Banner() {
   return (
-    <div className='relative z-0 max-sm:absolute max-sm:w-[95%] max-sm:top-8 h-1/3 lg:mt-0 sm:w-[95%] sm:h-1/2 md:w-[95%] md:h-3/5 lg:h-3/4  xl:h-4/5 2xl:h-[85%] 2xl:w-[90%] xl:w-[95%] lg:w-[95%]'>
+    <div className='relative z-0 max-sm:absolute max-sm:h-4/5 max-sm:w-[95%] max-sm:top-8 h-1/3 lg:mt-0 sm:w-[95%] sm:h-1/2 md:w-[95%] md:h-3/5 lg:h-3/4  xl:h-4/5 2xl:h-[85%] 2xl:w-[90%] xl:w-[95%] lg:w-[95%]'>
       <div
         className="clip_path_desktop z-0 bg-slate-800 absolute h-full w-full left-0 top-0"
         style={{

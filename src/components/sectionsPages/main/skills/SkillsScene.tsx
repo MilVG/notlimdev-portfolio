@@ -1,6 +1,5 @@
 "use client";
 
-import styles from "@/app/portfolio/root_portfolio.module.css";
 import * as THREE from "three"
 import { Decal, useTexture } from "@react-three/drei";
 import { Canvas, ThreeEvent } from "@react-three/fiber";
@@ -65,7 +64,7 @@ export default function SkillsScene() {
   const [DataPathTexture] = useState(dataPathTexture)
 
   return (
-    <div className={styles.skills}>
+    <div className="w-screen h-screen max-sm:h-1/2">
       <Canvas>
         <directionalLight intensity={1.7} position={[1, 6, 10]} />
         <ambientLight intensity={0.1} position={[1, 4, 4]} />
