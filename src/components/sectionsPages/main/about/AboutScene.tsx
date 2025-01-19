@@ -5,7 +5,6 @@ import {
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
-import styles from "@/app/portfolio/root_portfolio.module.css";
 
 import { OrbitControls as ThreeOrbitControls } from "three-stdlib";
 import { AnimationModel } from "@/components/animations/AnimationModel";
@@ -36,7 +35,7 @@ export default function AboutScene() {
 
   const containerSceneRef = useRef<HTMLDivElement | null>(null)
   return (
-    <div ref={containerSceneRef} className={styles.scene}>
+    <div ref={containerSceneRef} className="w-full h-full">
       <Canvas>
         <Camera />
         <ambientLight
