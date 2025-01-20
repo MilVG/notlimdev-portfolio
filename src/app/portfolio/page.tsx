@@ -1,5 +1,6 @@
 
 import AboutScene from "@/components/sectionsPages/main/about/AboutScene";
+import { Experience } from "@/components/sectionsPages/main/experience/Experience";
 import Header from "@/components/sectionsPages/main/head/Header";
 import SkillsScene from "@/components/sectionsPages/main/skills/SkillsScene";
 
@@ -10,7 +11,7 @@ export default function RootPage() {
       <Header />
       <AboutScene />
       <SkillsScene />
-      {/* <Experience /> */}
+      <Experience />
       {/* <Projects /> */}
       {/* <Contact /> */}
     </div>
