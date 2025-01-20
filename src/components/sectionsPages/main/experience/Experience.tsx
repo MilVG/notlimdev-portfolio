@@ -1,9 +1,7 @@
 "use client"
+
 import { useState } from 'react';
-
 import { TimelineLogo } from "./elements/TimelineLogo";
-import styles from "@/components/sectionsPages/main/experience/elements/styles-experience.module.css"
-
 
 export const Experience = () => {
 
