@@ -18,8 +18,6 @@ interface AnimationWrapperProps {
 
 export const AnimationModel = ({ children, controlsRef, containerSceneRef }: AnimationWrapperProps) => {
 
-  const timeline = useRef<GSAPTimeline>();
-
   const { camera } = useThree<{ camera: THREE.PerspectiveCamera }>();
   const groupRef = useRef<THREE.Group>(null);
   const animatedTarget = useRef(new THREE.Vector3(0, 0, 0));
@@ -36,27 +34,27 @@ export const AnimationModel = ({ children, controlsRef, containerSceneRef }: Ani
     controlsRef.current?.update();
 
     const containerRef = containerSceneRef.current
-
-    timeline.current = gsap.timeline({
+    const timelineScene = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef,
         start: "top top",
-        end: "+=1000%",
+        end: "bottom+=400% bottom",
         scrub: true,
         pin: true,
       },
     });
 
+
     ArrayAnimations({
       modelRef: modelRef,
-      timeline: timeline.current,
+      timeline: timelineScene,
       camera: camera,
       labelsrefs: labelsrefs,
       animatedTarget: animatedTarget,
       controlsRef: controlsRef
     });
 
-  }, { dependencies: [modelRef], scope: containerSceneRef })
+  }, { dependencies: [modelRef, containerSceneRef], scope: containerSceneRef })
 
   return <group ref={groupRef}>{children}</group>;
 };
