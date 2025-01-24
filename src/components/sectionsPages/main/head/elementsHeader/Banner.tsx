@@ -32,7 +32,7 @@ export default function Banner() {
           2xl:w-[400px] 2xl:h-[400px] 2xl:right-28 2xl:top-48'>
           <Image
             className='bg-cover w-full h-full mix-blend-overlay rounded-full'
-            src={"/perfilmilton.jpg"}
+            src={"/image_developer.webp"}
             width={400}
             height={400}
             alt='image_profile'
