@@ -35,7 +35,7 @@ export default function AboutScene() {
 
   const containerSceneRef = useRef<HTMLDivElement | null>(null)
   return (
-    <div ref={containerSceneRef} className="w-full h-full">
+    <div ref={containerSceneRef} className="w-full h-screen">
       <Canvas>
         <Camera />
         <ambientLight
