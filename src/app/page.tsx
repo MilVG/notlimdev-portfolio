@@ -1,6 +1,7 @@
+import Home from "@/components/sectionsPages/main/Home";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <h1>Inicio de Proyecto Con threejs Portfolio</h1>
+    <Home />
   );
 }
