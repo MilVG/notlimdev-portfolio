@@ -4,11 +4,13 @@ import gsap from "gsap"
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Lenis from "lenis";
+import Card from "./elementsProjects/Card";
 
 
 export const Projects = () => {
 
   const horizotalPanelsRef = useRef<HTMLDivElement>(null)
+  const container = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -32,30 +34,38 @@ export const Projects = () => {
     gsap.registerPlugin(ScrollTrigger);
     const sections = gsap.utils.toArray(".panel")
 
-    gsap.config({ force3D: true })
-    gsap.to('.panel', {
+    if (!horizotalPanelsRef || sections.length === 0) return
+
+    const totalWidth = horizotalPanelsRef.current?.scrollWidth
+    const newtimeline = gsap.timeline()
+    newtimeline.to(sections, {
       xPercent: -(100 * (sections.length - 1)),
       ease: "none",
       scrollTrigger: {
         trigger: horizotalPanelsRef.current,
         scrub: 1,
-        end: () => "+=" + horizotalPanelsRef.current?.offsetWidth,
         pin: true,
-        snap: 1 / (sections.length - 1),
+        start: "top top",
+        end: () => `+=${totalWidth}`,
       }
     })
 
-  }, { scope: horizotalPanelsRef })
+  }, { dependencies: [horizotalPanelsRef], scope: container })
+
   return (
-    <>
-      <section ref={horizotalPanelsRef} className="min-h-screen flex flex-nowrap items-center space-x-10 px-10">
-        <div className="w-1/2  h-[50vh] shrink-0 rounded-3xl bg-slate-600 panel will-change-transform"></div>
-        <div className="w-1/2 h-[50vh] shrink-0 rounded-3xl bg-purple-400 panel will-change-transform" ></div>
-        <div className="w-1/2 h-[50vh] shrink-0 rounded-3xl bg-green-600  panel will-change-transform" ></div>
-        <div className="w-1/2 h-[50vh] shrink-0 rounded-3xl bg-yellow-500 panel will-change-transform" ></div>
+    <div className="w-full relative overflow-x-hidden" ref={container}>
+      <section
+        ref={horizotalPanelsRef}
+        className="h-screen flex flex-nowrap items-center 
+        space-x-10 px-10 max-sm:px-3 max-sm:space-x-2"
+      >
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </section>
 
-    </>
+    </div>
   )
 }
 
