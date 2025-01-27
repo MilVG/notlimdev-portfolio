@@ -3,9 +3,10 @@
 import * as THREE from "three"
 import { Decal, useTexture } from "@react-three/drei";
 import { Canvas, ThreeEvent } from "@react-three/fiber";
-import { Suspense, useState, useRef } from "react";
+import { Suspense, useState, useRef, useEffect } from "react";
 import DashedLineCurve from "./LineCurve";
 import { dataPathTexture, dataPathTextureT } from "@/data/DataPathImageTexture";
+import { useDivRefsStore } from "@/store/store-sections";
 
 interface textureMeshI extends Omit<dataPathTextureT, 'image' | 'id'> {
   texturePath: string
@@ -62,9 +63,19 @@ function TexturedMesh({ texturePath, positionMesh, positionDecal, rotation, scal
 
 export default function SkillsScene() {
   const [DataPathTexture] = useState(dataPathTexture)
-
+  const skillSectionRef = useRef<HTMLDivElement | null>(null)
+  const setDivRef = useDivRefsStore((state) => state.setDivRef)
+  useEffect(() => {
+    if (skillSectionRef.current) {
+      setDivRef('Skills', skillSectionRef)
+    }
+  }, [skillSectionRef, setDivRef])
   return (
-    <div className="w-screen h-screen max-sm:h-1/2">
+    <div id="Skills" className="relative w-screen h-screen max-sm:h-1/2" ref={skillSectionRef}>
+      <div className="w-full flex flex-row justify-center items-center">
+        <h1 className="w-[90%] text-white text-4xl 
+          font-bold text-center border-b-2 border-t-2 border-dashed">Skills</h1>
+      </div>
       <Canvas>
         <directionalLight intensity={1.7} position={[1, 6, 10]} />
         <ambientLight intensity={0.1} position={[1, 4, 4]} />
