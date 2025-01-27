@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { OrbitControls as ThreeOrbitControls } from "three-stdlib";
 import { useModelStore } from "@/store/store";
 import { useLabelsStore } from "@/store/store_Labels_Html";
@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useGSAP } from "@gsap/react";
 import { ArrayAnimations } from "@/data/animations";
+import { useTimelineStore } from "@/store/store-timeline-scrollTrigger";
 
 interface AnimationWrapperProps {
   children: React.ReactNode;
@@ -23,6 +24,8 @@ export const AnimationModel = ({ children, controlsRef, containerSceneRef }: Ani
   const animatedTarget = useRef(new THREE.Vector3(0, 0, 0));
   const modelRef = useModelStore((state) => state.modelRef);
   const labelsrefs = useLabelsStore((state) => state.labelsRef);
+
+  const setTimeline = useTimelineStore((state) => state.setTimeline)
 
   useGSAP(() => {
 
@@ -44,7 +47,7 @@ export const AnimationModel = ({ children, controlsRef, containerSceneRef }: Ani
       },
     });
 
-
+    setTimeline(timelineScene)
     ArrayAnimations({
       modelRef: modelRef,
       timeline: timelineScene,
@@ -54,7 +57,7 @@ export const AnimationModel = ({ children, controlsRef, containerSceneRef }: Ani
       controlsRef: controlsRef
     });
 
-  }, { dependencies: [modelRef, containerSceneRef], scope: containerSceneRef })
+  }, { dependencies: [modelRef, containerSceneRef, setTimeline], scope: containerSceneRef })
 
   return <group ref={groupRef}>{children}</group>;
 };
