@@ -9,12 +9,10 @@ export default function Home() {
   return (
     <div className="w-full h-screen">
       <Header />
-      <div className="relative w-full h-[500%]">
-        <AboutScene />
-      </div>
+      <AboutScene />
       <SkillsScene />
-      <Experience />
-      <Projects />
+      {/* <Experience /> */}
+      {/* <Projects /> */}
       {/* <Contact /> */}
     </div>
   );
