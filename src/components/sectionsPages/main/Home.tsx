@@ -11,8 +11,8 @@ export default function Home() {
       <Header />
       <AboutScene />
       <SkillsScene />
-      {/* <Experience /> */}
-      {/* <Projects /> */}
+      <Experience />
+      <Projects />
       {/* <Contact /> */}
     </div>
   );
