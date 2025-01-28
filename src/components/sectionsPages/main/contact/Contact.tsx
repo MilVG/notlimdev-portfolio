@@ -55,13 +55,17 @@ export const Contact = () => {
       <div className="relative z-1 w-full xl:w-3/4 h-full">
 
         {/* Iterfaz Formulario*/}
-        <div className="space-y-5">
-          <div className="absolute bottom-20 left-0 xl:top-40 xl:left-20 p-8 space-y-10">
+        <div className="space-y-5 ">
+          <div className="absolute bottom-20 left-0 xl:top-40 xl:left-20 p-8 space-y-10 
+            lg:left-40 lg:top-30 lg:h-[500px]
+            md:left-40 md:top-24 md:h-[450px]
+            sm:left-20 sm:top-24 sm:h-[450px] 
+            max-sm:left-2 max-sm:bottom-20 max-sm:h-[450px] max-sm:w-[94%]">
             <div>
-              <h1 className="text-3xl xl:text-5xl font-bold text-white">Let&aposs get in touch</h1>
+              <h1 className="text-3xl xl:text-5xl font-bold text-white">{`Let' get in touch`}</h1>
             </div>
             <div className="space-y-2 flex flex-col justify-start items-start">
-              <h5 className="font-bold text-lg text-white">I&aposm interested in</h5>
+              <h5 className="font-bold text-lg text-white"> {`I'm interested in`}</h5>
               <form className="flex flex-col justify-start space-y-10">
                 <div className="flex flex-wrap justify-start items-start gap-2">
                   {namesButtons.map((btn, index) => (
@@ -76,12 +80,12 @@ export const Contact = () => {
                 </div>
                 <div className="space-y-5">
                   <input
-                    className="w-full border-t-2 border-slate-400 bg-transparent focus:outline-none focus:border-t-cyan-300 text-white p-2"
+                    className="w-full border-b-2 border-slate-400 bg-transparent focus:outline-none focus:border-b-cyan-300 text-white p-2"
                     type="text"
                     placeholder="message"
                   />
                   <input
-                    className="w-full border-t-2 border-slate-400 bg-transparent focus:outline-none focus:border-t-cyan-300 text-white p-2"
+                    className="w-full border-b-2 border-slate-400 bg-transparent focus:outline-none focus:border-b-cyan-300 text-white p-2"
                     type="email"
                     placeholder="email"
                   />
@@ -95,7 +99,7 @@ export const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="relative -z-10 h-1/3 xl:h-full top-8">
+        <div className="relative -z-10 h-1/3 max-sm:top-24 max-sm:h-1/4 sm:h-3/6 md:h-3/5 lg:h-4/5 xl:h-full top-8">
           <Canvas>
             <Camera />
             <ambientLight intensity={5} color={"#ffffff"} position={[0, 3, 0]} />
