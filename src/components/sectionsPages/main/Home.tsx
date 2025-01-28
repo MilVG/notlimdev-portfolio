@@ -3,6 +3,7 @@ import { Experience } from "@/components/sectionsPages/main/experience/Experienc
 import Header from "@/components/sectionsPages/main/head/Header";
 import { Projects } from "@/components/sectionsPages/main/projects/Projects";
 import SkillsScene from "@/components/sectionsPages/main/skills/SkillsScene";
+import { Contact } from "./contact/Contact";
 
 export default function Home() {
 
@@ -13,7 +14,7 @@ export default function Home() {
       <SkillsScene />
       <Experience />
       <Projects />
-      {/* <Contact /> */}
+      <Contact />
     </div>
   );
 }
