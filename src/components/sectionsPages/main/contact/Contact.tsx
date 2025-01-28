@@ -1,8 +1,9 @@
 "use client";
+import { useDivRefsStore } from "@/store/store-sections";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import dynamic from "next/dynamic";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 
 //Importacion de modelo
 const Earth = dynamic(
@@ -23,6 +24,10 @@ const Camera = dynamic(
 
 
 export const Contact = () => {
+
+  const sectionContact = useRef<HTMLDivElement>(null)
+  const setRefDivs = useDivRefsStore((state) => state.setDivRef)
+
   const [namesButtons, setNameButtons] = useState([
     { name: "Depveloment", isActive: false },
     { name: "App Scratech", isActive: false },
@@ -38,8 +43,15 @@ export const Contact = () => {
       })),
     );
   };
+
+  useEffect(() => {
+
+    if (sectionContact.current) {
+      setRefDivs("Contact", sectionContact)
+    }
+  }, [sectionContact, setRefDivs])
   return (
-    <div className="relative sm:h-4/5 h-full w-full flex flex-col justify-center items-center  ">
+    <div id="Contact" ref={sectionContact} className="relative sm:h-4/5 h-full w-full flex flex-col justify-center items-center">
       <div className="relative z-1 w-full xl:w-3/4 h-full">
 
         {/* Iterfaz Formulario*/}
