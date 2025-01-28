@@ -5,13 +5,16 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Lenis from "lenis";
 import Card from "./elementsProjects/Card";
+import { useDivRefsStore } from "@/store/store-sections";
+import { useTimelineProjectStore } from "@/store/store-timeline-projects";
 
 
 export const Projects = () => {
 
   const horizotalPanelsRef = useRef<HTMLDivElement>(null)
   const container = useRef<HTMLDivElement>(null)
-
+  const setRefDivs = useDivRefsStore((state) => state.setDivRef)
+  const setTimelineProject = useTimelineProjectStore((state) => state.setTimeline)
   useEffect(() => {
     const lenis = new Lenis();
     lenis.on('scroll', () => { });
@@ -50,10 +53,17 @@ export const Projects = () => {
       }
     })
 
+    setTimelineProject(newtimeline)
+
   }, { dependencies: [horizotalPanelsRef], scope: container })
 
+  useEffect(() => {
+    if (container.current) {
+      setRefDivs("Projects", container)
+    }
+  }, [container, setRefDivs])
   return (
-    <div className="w-full relative overflow-x-hidden" ref={container}>
+    <div id="Projects" className="w-full relative overflow-x-hidden" ref={container}>
       <section
         ref={horizotalPanelsRef}
         className="h-screen flex flex-nowrap items-center 
