@@ -47,6 +47,29 @@ const Navigation = ({ visible, setVisible }: { visible: boolean, setVisible: Dis
     const hrefsection = gsap.timeline();
     const aboutMeSection = document.getElementById("About-Me");
 
+    const inactiveAboutSection = () => {
+      if (timelineAboutSection && aboutMeSection) {
+        timelineAboutSection.scrollTrigger?.disable(); // Desactiva el ScrollTrigger
+        timelineAboutSection.pause(); // Pausa el timeline
+        aboutMeSection.classList.remove("h-[500%]");
+        aboutMeSection.classList.add("h-[100vh]");
+      }
+
+    }
+
+    const activeAboutSection = () => {
+      aboutRef.current?.classList.remove("h-[100vh]");
+      aboutRef.current?.classList.add("h-[500%]");
+      // Reactivar ambos ScrollTriggers
+      if (timelineAboutSection?.scrollTrigger) {
+        // Habilitar About-Me pero asegurarte de no alterar el scroll actual
+        const currentScroll = window.scrollY; // Guardar posición actual del scroll
+        timelineAboutSection.scrollTrigger.enable(false); // Habilitar sin sincronizar
+        window.scrollTo(0, currentScroll); // Restaurar posición actual
+      }
+
+    }
+
     if (aboutRef.current.id === name) {
       hrefsection.to(window, { duration: 2, scrollTo: aboutRef.current })
       if (timelineAboutSection && aboutMeSection) {
@@ -56,35 +79,32 @@ const Navigation = ({ visible, setVisible }: { visible: boolean, setVisible: Dis
       }
     }
     if (skillRef.current.id === name) {
-      if (timelineAboutSection && aboutMeSection) {
-        timelineAboutSection.scrollTrigger?.disable(); // Desactiva el ScrollTrigger
-        timelineAboutSection.pause(); // Pausa el timeline
-        aboutMeSection.classList.remove("h-[500%]");
-        aboutMeSection.classList.add("h-[100vh]");
-      }
-
-      hrefsection.to(window, { duration: 2, scrollTo: skillRef.current })
+      inactiveAboutSection()
+      hrefsection.to(window,
+        {
+          duration: 2,
+          scrollTo: skillRef.current,
+          onComplete: () => {
+            activeAboutSection()
+          }
+        })
     }
 
     if (experienceRef.current.id === name) {
-      if (timelineAboutSection && aboutMeSection) {
-        timelineAboutSection.scrollTrigger?.disable(); // Desactiva el ScrollTrigger
-        timelineAboutSection.pause(); // Pausa el timeline
-        aboutMeSection.classList.remove("h-[500%]");
-        aboutMeSection.classList.add("h-[100vh]");
-      }
 
-      hrefsection.to(window, { duration: 2, scrollTo: experienceRef.current })
+      inactiveAboutSection()
+      hrefsection.to(window,
+        {
+          duration: 2,
+          scrollTo: experienceRef.current,
+          onComplete: () => {
+            activeAboutSection()
+          }
+        })
     }
 
     if (projectsRef.current.id === name) {
-
-      if (timelineAboutSection && aboutMeSection) {
-        timelineAboutSection.scrollTrigger?.disable(); // Desactiva el ScrollTrigger
-        aboutMeSection.classList.remove("h-[500%]");
-        aboutMeSection.classList.add("h-[100vh]");
-      }
-
+      inactiveAboutSection()
       hrefsection.to(window,
         {
           duration: 2,
