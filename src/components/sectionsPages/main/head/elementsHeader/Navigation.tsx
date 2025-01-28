@@ -1,13 +1,12 @@
 "use client"
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import { XMarkIcon } from "@heroicons/react/24/outline"
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import ScrollToPlugin from 'gsap/dist/ScrollToPlugin'
 import { useDivRefsStore } from '@/store/store-sections'
 import { useTimelineStore } from '@/store/store-timeline-scrollTrigger'
+import { useTimelineProjectStore } from '@/store/store-timeline-projects'
 
 
 type RutesPage = {
@@ -17,7 +16,7 @@ type RutesPage = {
 const pages: RutesPage[] = [
   { id: 1, name: 'About-Me' },
   { id: 2, name: 'Skills' },
-  { id: 3, name: 'formation' },
+  { id: 3, name: 'Experience' },
   { id: 4, name: 'Projects' },
 ]
 
@@ -25,6 +24,7 @@ const pages: RutesPage[] = [
 const Navigation = ({ visible, setVisible }: { visible: boolean, setVisible: Dispatch<SetStateAction<boolean>> }) => {
   const sectionsDivRef = useDivRefsStore((state) => state.divRefs)
   const timelineAboutSection = useTimelineStore((state) => state.timelineAboutSection)
+  const timelineProjectSection = useTimelineProjectStore((state) => state.timelineProjectsSection)
 
   const handleCloseMenu = () => {
     setVisible(false)
@@ -38,9 +38,11 @@ const Navigation = ({ visible, setVisible }: { visible: boolean, setVisible: Dis
 
     const aboutRef = sectionsDivRef['About-Me']
     const skillRef = sectionsDivRef['Skills']
+    const experienceRef = sectionsDivRef['Experience']
+    const projectsRef = sectionsDivRef['Projects']
 
 
-    if (!aboutRef?.current || !skillRef.current) return
+    if (!aboutRef?.current || !skillRef.current || !experienceRef.current || !projectsRef.current) return
 
     const hrefsection = gsap.timeline();
     const aboutMeSection = document.getElementById("About-Me");
@@ -63,6 +65,49 @@ const Navigation = ({ visible, setVisible }: { visible: boolean, setVisible: Dis
 
       hrefsection.to(window, { duration: 2, scrollTo: skillRef.current })
     }
+
+    if (experienceRef.current.id === name) {
+      if (timelineAboutSection && aboutMeSection) {
+        timelineAboutSection.scrollTrigger?.disable(); // Desactiva el ScrollTrigger
+        timelineAboutSection.pause(); // Pausa el timeline
+        aboutMeSection.classList.remove("h-[500%]");
+        aboutMeSection.classList.add("h-[100vh]");
+      }
+
+      hrefsection.to(window, { duration: 2, scrollTo: experienceRef.current })
+    }
+
+    if (projectsRef.current.id === name) {
+
+      if (timelineAboutSection && aboutMeSection) {
+        timelineAboutSection.scrollTrigger?.disable(); // Desactiva el ScrollTrigger
+        aboutMeSection.classList.remove("h-[500%]");
+        aboutMeSection.classList.add("h-[100vh]");
+      }
+
+      hrefsection.to(window,
+        {
+          duration: 2,
+          scrollTo: projectsRef.current,
+          onComplete: (() => {
+            aboutRef.current?.classList.remove("h-[100vh]");
+            aboutRef.current?.classList.add("h-[500%]");
+            // Reactivar ambos ScrollTriggers
+            if (timelineProjectSection?.scrollTrigger) {
+              timelineProjectSection.scrollTrigger.enable(); // Habilita el ScrollTrigger de Projects
+            }
+            if (timelineAboutSection?.scrollTrigger) {
+              // Habilitar About-Me pero asegurarte de no alterar el scroll actual
+              const currentScroll = window.scrollY; // Guardar posición actual del scroll
+              timelineAboutSection.scrollTrigger.enable(false); // Habilitar sin sincronizar
+              window.scrollTo(0, currentScroll); // Restaurar posición actual
+            }
+          })
+        }
+      )
+
+    }
+
     setVisible(false)
   }
   return (
